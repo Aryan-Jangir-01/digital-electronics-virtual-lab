@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+:root {
+  --bg-grid: #131722;
+  --bg-canvas: #0c0f17;
+  --wire-high: #22c55e;
+  --wire-low: #3b82f6;
+  --wire-off: #475569;
+  --wire-float: #eab308;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--bg-canvas);
+  color: #f1f5f9;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+/* Circuit grid pattern */
+.circuit-grid {
+  background-size: 24px 24px;
+  background-image: 
+    radial-gradient(circle, rgba(255, 255, 255, 0.08) 1.2px, transparent 1.2px);
+}
+
+.circuit-grid-major {
+  background-size: 120px 120px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+}
+
+/* Animations for active signal pulsing */
+@keyframes wireGlow {
+  0% { stroke-dashoffset: 24; }
+  100% { stroke-dashoffset: 0; }
+}
+
+.wire-animated {
+  animation: wireGlow 0.8s linear infinite;
+}
+
+/* Custom scrollbars for mobile drawers */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.6);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(71, 85, 105, 0.6);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.8);
+}
