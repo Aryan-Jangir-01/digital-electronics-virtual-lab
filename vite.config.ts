@@ -4,6 +4,7 @@ import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/digital-electronics-virtual-lab/',
   plugins: [
     react(),
     tailwindcss(),
